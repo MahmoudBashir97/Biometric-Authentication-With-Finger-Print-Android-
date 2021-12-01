@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
                         super.onAuthenticationError(errorCode, errString);
+                        // response of your finger print auth = some error occured
                         authStateTv.setText("Authentication error: "+ errString);
                         Toast.makeText(MainActivity.this,
                                 "Some Error Occured!", Toast.LENGTH_SHORT).show();
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
                         super.onAuthenticationSucceeded(result);
+                        // response of your finger print auth = success
                         authStateTv.setText("Authentication succeed ! ");
                         Toast.makeText(MainActivity.this,
                                 "Authentication succeed !", Toast.LENGTH_SHORT).show();
@@ -53,9 +55,11 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onAuthenticationFailed() {
                         super.onAuthenticationFailed();
+                        // response of your finger print auth = failed
                         authStateTv.setText("Authentication Failed !");
                         Toast.makeText(MainActivity.this,
                                 "Authentication Failed !", Toast.LENGTH_SHORT).show();
+
                     }
                 });
 
